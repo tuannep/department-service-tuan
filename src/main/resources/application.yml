@@ -1,5 +1,5 @@
 spring:
   application:
     name: department-service
-  config:
-    import: "optional:configserver:https://config-service-tuan.herokuapp.com"
+  profiles:
+    active: local

@@ -1,0 +1,3 @@
+spring:
+  config:
+    import: "optional:configserver:https://config-service-tuan.herokuapp.com"
