@@ -4,6 +4,7 @@ import pl.piomin.services.department.model.Department;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class DepartmentRepository {
 
@@ -19,7 +20,7 @@ public class DepartmentRepository {
 		return departments.stream()
 				.filter(a -> a.getId().equals(id))
 				.findFirst()
-				.orElseThrow();
+				.orElseThrow(() -> new IllegalArgumentException("No class found"));
 	}
 	
 	public List<Department> findAll() {
@@ -29,7 +30,7 @@ public class DepartmentRepository {
 	public List<Department> findByOrganization(Long organizationId) {
 		return departments.stream()
 				.filter(a -> a.getOrganizationId().equals(organizationId))
-				.toList();
+				.collect(Collectors.toList());
 	}
 	
 }
