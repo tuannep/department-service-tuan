@@ -3,5 +3,9 @@ spring:
     name: department-service
 #  profiles:
 #    active: local
+#  config:
+#    import: "optional:configserver:http://localhost:8888"
+  profiles:
+    active: heroku
   config:
-    import: "optional:configserver:http://localhost:8888"
+    import: "optional:configserver:https://config-service-tuan.herokuapp.com"
